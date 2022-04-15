@@ -17,4 +17,10 @@ router.post('/', (req, res) => {
   res.json(response);
 })
 
+router.get('/:post_id', (req, res) => {
+  
+})
+
+
+
 module.exports = router;
