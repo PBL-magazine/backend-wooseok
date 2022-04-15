@@ -1,22 +1,27 @@
 const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
+const { Users } = require('../../models');
 
-const virifiedToken = (req, res, next) => {
-  const { authorization } = req.headers;
+const verifiedToken = (req, res, next) => {
+  // const { authorization } = req.headers;
+  // const [tokenType, tokenValue] = authorization.split(' ');
 
-  if (!accessToken) {
-    return res.json({
-      error: "로그인 후 사용해 주세요."
-    })
-  }
+  // if (tokenType !== 'Bearer') {
+  //   return res.status(401).json({
+  //     error: "로그인 후 사용해 주세요."
+  //   })
+  // }
 
-  try {
-    const validToken = jwt.verify()
-  } catch (error) {
-    res.json({
-      error: error
-    })
-  }
+  // try {
+  //   const { validToken } = jwt.verify(tokenValue, SECRET);
 
+  //   Users.findByPk()
+  // } catch (error) {
+  //   res.json({
+  //     error: error
+  //   })
+  // }
+  next()
 }
 
 module.exports = { verifiedToken }
