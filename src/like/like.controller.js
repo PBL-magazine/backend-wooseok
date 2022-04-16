@@ -11,9 +11,7 @@ const uploader = multer({ dest: 'uploads/' })
 router.patch('/like', verifiedToken, async (req, res) => {
   const { post_id } = req.params;
   const { user } = res.locals;
-  console.log('조아요!!!')
 
-  console.log(user)
   const liked = await LikeService.chkLiked(post_id, user.id);
   await LikeService.changeLike(liked, post_id, user.id);
 

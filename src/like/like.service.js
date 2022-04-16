@@ -4,7 +4,6 @@ module.exports = LikeService = {
 
   // 좋아요 상태 확인
   chkLiked: async (PostId, UserId) => {
-    console.log('fuck')
     return await Likes.findOne({ where: { PostId, UserId } })
   },
   // 좋아요 상태 변경

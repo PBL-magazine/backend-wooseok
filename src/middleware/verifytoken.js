@@ -6,11 +6,6 @@ const verifiedToken = (req, res, next) => {
   const { authorization } = req.headers;
   const [tokenType, tokenValue] = authorization.split(' ');
 
-  console.log('여기가 어디죠?');
-
-  console.log(tokenType)
-  console.log(tokenValue)
-
   if (tokenType !== 'Bearer') {
     return res.status(401).json({
       error: "로그인 후 사용해 주세요."
