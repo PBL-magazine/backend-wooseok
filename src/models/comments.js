@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   },
   {
-    timestamps: true
+    timestamps: true,
+    underscore: true,
   })
   
   return Comments

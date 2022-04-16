@@ -1,4 +1,4 @@
-const { Posts, Users } = require('../../models')
+const { Posts, Users } = require('../models')
 
 module.exports = PostService = {
   // 전체 게시글 가져오기

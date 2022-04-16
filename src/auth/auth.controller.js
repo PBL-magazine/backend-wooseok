@@ -71,10 +71,9 @@ router.post('/signin', async (req, res) => {
       nickname: user.nickname,
     }, SECRET)
 
-    res.status(200).json({
-      
+    res.status(200).cookie({
+      token: accessToken
     })
-
   })
 })
 

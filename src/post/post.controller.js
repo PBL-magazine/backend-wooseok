@@ -72,11 +72,16 @@ router.patch('/:post_id', async (req, res) => {
 
     })
   }
-
-
+  
 
 })
 
+// 특정 게시물 삭제
+router.delete('/:post_id', verifiedToken, (req, res) => {
+  const { post_id } = req.params;
+
+  
+})
 
 
 module.exports = router;
