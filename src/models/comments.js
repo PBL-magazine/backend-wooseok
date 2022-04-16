@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   {
     timestamps: true,
     underscore: true,
+    tableName: 'comments'
   })
   
   return Comments

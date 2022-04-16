@@ -4,24 +4,34 @@ const { Users } = require('../models');
 
 const verifiedToken = (req, res, next) => {
   const { authorization } = req.headers;
-  // const [tokenType, tokenValue] = authorization.split(' ');
+  const [tokenType, tokenValue] = authorization.split(' ');
 
-  // if (tokenType !== 'Bearer') {
-  //   return res.status(401).json({
-  //     error: "로그인 후 사용해 주세요."
-  //   })
-  // }
+  console.log('여기가 어디죠?');
 
-  // try {
-  //   const { validToken } = jwt.verify(tokenValue, SECRET);
+  console.log(tokenType)
+  console.log(tokenValue)
 
-  //   Users.findByPk()
-  // } catch (error) {
-  //   res.json({
-  //     error: error
-  //   })
-  // }
-  next()
+  if (tokenType !== 'Bearer') {
+    return res.status(401).json({
+      error: "로그인 후 사용해 주세요."
+    })
+  }
+
+  try {
+    const { email } = jwt.verify(tokenValue, SECRET);
+
+
+    Users.findOne({ where: { email }}).then((user) => {
+      res.locals.user = user.dataValues;
+
+      next();
+    })
+
+  } catch (error) {
+    res.json({
+      error: error
+    })
+  }
 }
 
 module.exports = { verifiedToken }

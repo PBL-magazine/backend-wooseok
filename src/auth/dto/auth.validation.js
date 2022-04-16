@@ -13,12 +13,7 @@ const authValidation = {
     password: joi.string().min(4).max(30).required().messages({
       'string.base': '비밀번호 형식을 확인해주세요.',
       'string.empty': '비밀번호를 입력해 주세요.'
-    }),
-    passwordChk: joi.string().min(4).max(30).required().messages({
-      'string.base': '비밀번호 형식을 확인해주세요.',
-      'string.empty': '비밀번호를 입력해 주세요.'
     })
-    
   }),
 
   signInSchema : joi.object({

@@ -20,20 +20,21 @@
 <hr />
 
 ## ERD 설계
-![설계도](./assets/NodeJS-Week2%20(1).png)
+![설계도](./assets/NodeJS-Week2%20(3).png)
 
 ## API 설계
 
-분류|기능|URL|Method|Request|Response|Response(error)|
----|---|---|---|---|---|---|
-게시글|게시글 전체 조회|/api/posts|GET| - | - |
-게시글|게시글 생성|/api/posts|POST| - | - |
-게시글|특정 게시글 조회|/api/posts/:post_id|GET| - | - |
-게시글|특정 게시글 수정|/api/posts/:post_id|PATCH| - | - |
-게시글|특정 게시글 삭제|/api/posts/:post_id|DELETE| - | - |
-댓글|특정 게시글 전체 댓글 조회|/api/posts/:post_id/comments|GET| - | - |
-댓글|특정 게시글 댓글 생성|/api/posts/:post_id/comments|POST| - | - |
-댓글|특정 게시글 댓글 수정|/api/posts/:post_id/comments/:comment_id|PATCH| - | - |
-댓글|특정 게시글 댓글 삭제|/api/posts/:post_id/comments/:comments_id|DELETE| - | - |
-회원관리|회원가입|/api/users/signup|POST| - | - |
-회원관리| 로그인 |/api/users/signin|POST| - | - |
+분류|기능|URL|Method|
+---|---|---|---|
+게시글|게시글 전체 조회|/api/posts|GET|
+게시글|게시글 생성|/api/posts|POST|
+게시글|특정 게시글 조회|/api/posts/:post_id|GET|
+게시글|특정 게시글 수정|/api/posts/:post_id|PATCH|
+게시글|특정 게시글 삭제|/api/posts/:post_id|DELETE|
+게시글|특정 게시글 좋아요 변경|/api/posts/:post_id/like|PATCH|
+댓글|특정 게시글 전체 댓글 조회|/api/posts/:post_id/comments|GET|
+댓글|특정 게시글 댓글 생성|/api/posts/:post_id/comments|POST|
+댓글|특정 게시글 댓글 수정|/api/posts/:post_id/comments/:comment_id|PATCH|
+댓글|특정 게시글 댓글 삭제|/api/posts/:post_id/comments/:comments_id|DELETE|
+회원관리|회원가입|/api/users/signup|POST|
+회원관리| 로그인 |/api/users/signin|POST|

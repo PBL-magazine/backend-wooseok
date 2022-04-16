@@ -10,6 +10,9 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
+const likeController = require('./like/like.controller');
+app.use('/api/posts/:post_id', likeController);
+
 const postController = require('./post/post.controller');
 app.use('/api/posts', postController);
 

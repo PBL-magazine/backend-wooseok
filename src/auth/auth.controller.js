@@ -5,24 +5,14 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const AuthService = require('../auth/auth.service');
 const SECRET = process.env.SECRET
-const { authValidation } = require('./auth.validation');
+const { authValidation } = require('./dto/auth.validation');
 
 // 회원가입
 router.post('/signup', async (req, res) => {
   try {
-    const { email, nickname, password, passwordChk } = await authValidation.signUpSchema.validateAsync(req.body);
-
-    if (password !== passwordChk) {
-      return res.status(400).json({
-        ok: false,
-        message: '비밀번호가 일치하지 않습니다.'
-      })
-    }
-
-    console.log(email)
-
+    const { email, nickname, password } = await authValidation.signUpSchema.validateAsync(req.body);
+   
     const existUser = await AuthService.findByEmail(email);
-    console.log(existUser)
     if (existUser) {
       return res.status(409).json({
         ok: false,
@@ -34,12 +24,12 @@ router.post('/signup', async (req, res) => {
       AuthService.createUser(email, nickname, hash);
     })
 
-    res.status(201).json({
+    return res.status(201).json({
       ok: true
     })
 
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       ok: false,
       message: '입력 형식을 확인하세요'
     })
@@ -75,7 +65,11 @@ router.post('/signin', async (req, res) => {
       nickname: user.nickname,
     }, SECRET)
 
-    return res.status(200).cookie({
+    // return res.status(200).cookie({
+    //   token: accessToken
+    // })
+
+    return res.status(200).json({
       token: accessToken
     })
   })

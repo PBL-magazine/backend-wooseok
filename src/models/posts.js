@@ -24,12 +24,17 @@ module.exports = (sequelize, DataTypes) => {
   {
     timestamps: true,
     underscore: true,
+    tableName: 'posts'
   })
 
 
   Posts.associate = (models) => {
 
     Posts.hasMany(models.Comments, {
+      onDelete: "cascade"
+    })
+
+    Posts.hasMany(models.Likes, {
       onDelete: "cascade"
     })
 

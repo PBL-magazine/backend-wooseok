@@ -29,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   {
     timestamps: false,
     underscore: true,
+    tableName: 'users'
   })
 
   Users.associate = (models) => {
@@ -37,10 +38,13 @@ module.exports = (sequelize, DataTypes) => {
     })
 
     Users.hasMany(models.Comments, {
-      onDelete: "cascade"
+      onDelete: "cascade",
+    })
+
+    Users.hasMany(models.Likes, {
+      onDelete: "cascade",
     })
   }
-
-  
+    
   return Users
 }
