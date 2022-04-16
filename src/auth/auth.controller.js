@@ -1,27 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const { verifiedToken } = require('../middleware/verifytoken')
-const multer = require('multer');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const joi = require('joi');
 const AuthService = require('../auth/auth.service');
-const { hash } = require('bcrypt');
-const { header } = require('express/lib/request');
 const SECRET = process.env.SECRET
-
-const joiSchema = joi.object({
-  email: joi.string().email().required(),
-  nickname: joi.string().min(3).max(30).required(),
-  password: joi.string().min(4).max(30).required()
-});
+const { authValidation } = require('./auth.validation');
 
 // 회원가입
 router.post('/signup', async (req, res) => {
   try {
-    const { email, nickname, password } = await joiSchema.validateAsync(req.body);
+    const { email, nickname, password, passwordChk } = await authValidation.signUpSchema.validateAsync(req.body);
+
+    if (password !== passwordChk) {
+      return res.status(400).json({
+        ok: false,
+        message: '비밀번호가 일치하지 않습니다.'
+      })
+    }
+
+    console.log(email)
 
     const existUser = await AuthService.findByEmail(email);
+    console.log(existUser)
     if (existUser) {
       return res.status(409).json({
         ok: false,
@@ -47,7 +48,7 @@ router.post('/signup', async (req, res) => {
 
 
 router.post('/signin', async (req, res) => {
-  const { email, password } = await joiSchema.validateAsync(req.body);
+  const { email, password } = await authValidation.signInSchema.validateAsync(req.body);
   
   const user = await AuthService.findByEmail(email);
 
@@ -58,9 +59,12 @@ router.post('/signin', async (req, res) => {
     })
   }
 
+  console.log(password)
+  console.log(user.password)
+
   bcrypt.compare(password, user.password).then((match) => {
     if (!match) {
-      res.status(401).json({
+      return res.status(401).json({
         ok: false,
         message: "이메일 또는 비밀번호를 확인하세요."
       })
@@ -71,7 +75,7 @@ router.post('/signin', async (req, res) => {
       nickname: user.nickname,
     }, SECRET)
 
-    res.status(200).cookie({
+    return res.status(200).cookie({
       token: accessToken
     })
   })

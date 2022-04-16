@@ -3,7 +3,7 @@ const SECRET = process.env.SECRET;
 const { Users } = require('../models');
 
 const verifiedToken = (req, res, next) => {
-  // const { authorization } = req.headers;
+  const { authorization } = req.headers;
   // const [tokenType, tokenValue] = authorization.split(' ');
 
   // if (tokenType !== 'Bearer') {
