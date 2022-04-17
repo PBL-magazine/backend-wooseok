@@ -18,7 +18,6 @@ const verifiedToken = (req, res, next) => {
 
     Users.findOne({ where: { email }}).then((user) => {
       res.locals.user = user.dataValues;
-
       next();
     })
 

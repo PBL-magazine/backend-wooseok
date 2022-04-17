@@ -6,11 +6,21 @@ module.exports = (sequelize, DataTypes) => {
   },
   {
     timestamps: false,
-    underscore: true,
+    underscored: true,
     tableName: 'likes'
   })
 
   Likes.removeAttribute('id')
+
+  Likes.associate = (models) => {
+    Likes.belongsTo(models.Users, {
+      foreignKey: 'user_id'
+    })
+
+    Likes.belongsTo(models.Posts, {
+      foreignKey: 'post_id'
+    })
+  }
   
   return Likes
 }

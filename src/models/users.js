@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define("Users", {
-    id: {
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -28,23 +28,28 @@ module.exports = (sequelize, DataTypes) => {
   },
   {
     timestamps: false,
-    underscore: true,
+    underscored: true,
     tableName: 'users'
   })
 
-  Users.associate = (models) => {
-    Users.hasMany(models.Posts, {
-      onDelete: "cascade",
-    })
 
-    Users.hasMany(models.Comments, {
-      onDelete: "cascade",
-    })
+    Users.associate = (models) => {
+      Users.hasMany(models.Posts, {
+        onDelete: "cascade",
+        foreignKey: 'user_id',
+      })
 
-    Users.hasMany(models.Likes, {
-      onDelete: "cascade",
-    })
-  }
-    
+      Users.hasMany(models.Comments, {
+        onDelete: "cascade",
+        foreignKey: 'user_id',
+
+      })
+
+      Users.hasMany(models.Likes, {
+        onDelete: "cascade",
+        foreignKey: 'user_id',
+      })
+    }
+
   return Users
 }

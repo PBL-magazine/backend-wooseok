@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Posts = sequelize.define("Posts", {
-    id: {
+    post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -16,30 +16,36 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING,
     },
-    deletedAt: {
+    deleted_at: {
       allowNull: true,
       type: DataTypes.DATE
     }
   },
   {
     timestamps: true,
-    underscore: true,
+    underscored: true,
     tableName: 'posts'
   })
+
 
 
   Posts.associate = (models) => {
 
     Posts.hasMany(models.Comments, {
-      onDelete: "cascade"
+      onDelete: "cascade",
+      foreignKey: "post_id",
     })
 
     Posts.hasMany(models.Likes, {
-      onDelete: "cascade"
+      onDelete: "cascade",
+      foreignKey: "post_id",
+    })
+
+    Posts.belongsTo(models.Users, {
+      foreignKey: "user_id"
     })
 
   }
-
   
   return Posts
 }

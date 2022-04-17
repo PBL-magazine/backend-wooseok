@@ -2,7 +2,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const Comments = sequelize.define("Comments", {
-    id: {
+    comment_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
@@ -12,16 +12,26 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    deletedAt: {
+    deleted_at: {
       allowNull: true,
       type: DataTypes.DATE
     }
   },
   {
     timestamps: true,
-    underscore: true,
+    underscored: true,
     tableName: 'comments'
   })
+
+  Comments.associate = (models) => {
+    Comments.belongsTo(models.Users, {
+      foreignKey: 'user_id'
+    })
+
+    Comments.belongsTo(models.Posts, {
+      foreignKey: 'post_id'
+    })
+  }
   
   return Comments
 }
