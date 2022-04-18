@@ -69,23 +69,25 @@ module.exports = PostService = {
 
   // 특정 게시물 가져오기
   findPostById: async (post_id) => {
-    const posts = await Posts.findOne({
-      include: [
-        {
-          model: Users,
-          as: 'user',
-          attributes: ['user_id', 'email', 'nickname', 'role'],
-        },
-      ],
-      raw: true,
-      where: {
-        post_id,
-        deleted_at: null,
-        // attributes: { include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'likes']] }
-      },
-    });
 
-    const likes = await LikeService.getLikesById(post_id);
+    const [posts, likes] = await Promise.all([
+      await Posts.findOne({
+        include: [
+          {
+            model: Users,
+            as: 'user',
+            attributes: ['user_id', 'email', 'nickname', 'role'],
+          },
+        ],
+        raw: true,
+        where: {
+          post_id,
+          deleted_at: null,
+        },
+      }),
+
+      await LikeService.getLikesById(post_id)
+    ])
 
     return { posts, likes };
   },
