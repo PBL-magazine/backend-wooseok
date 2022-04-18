@@ -39,26 +39,28 @@
 회원관리|회원가입|/api/users/signup|POST|
 회원관리| 로그인 |/api/users/signin|POST|
 
+<hr />
 
-4/16 작업 목록
+## 일자별 작업 목록
+### 4/15
 1. 기본틀 제작
-  - 기능별 router를 controller와 service 폴더로 분리
+    - 기능별 router를 controller와 service 폴더로 분리
 2. 게시글, 댓글, 좋아요, 회원관리 별로 폴더 분리
 3. 회원등록 로그인 기능 구현
-  - jwt발급 후 client의 쿠키에 저장
-  - 만료기한은 따로 설정하지 않음
+    - jwt발급 후 client의 쿠키에 저장
+    - 만료기한은 따로 설정하지 않음
 
-4/16
+### 4/16
 1. 게시글 CRUD 기능 구현(이미지 저장 제외)
 2. 댓글 기능 구현
 3. 좋아요 기능 구현
-  - 'likes' 테이블의 경우 post_id와 user_id 두 칼럼만 저장
-  - 좋아요 클릭 시 insert 다시 클릭시 delete
+    - 'likes' 테이블의 경우 post_id와 user_id 두 칼럼만 저장
+    - 좋아요 클릭 시 insert 다시 클릭시 delete
 
-4/17
+### 4/17
 1. 에러 핸들링 코드 수정
 2. 프론트연결 후 API 테스트
 
-4/18
+### 4/18
 1. 좋아요 및 로그아웃 기능 회의
 2. jest 테스트코드 작성
