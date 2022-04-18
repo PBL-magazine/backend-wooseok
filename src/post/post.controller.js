@@ -11,7 +11,6 @@ const uploader = multer({ dest: 'uploads/' })
 // 1. 전체 게시글 가져오기
 router.get('/', async (req, res) => {
   const results = await PostService.getAllPost();
-  console.log(results, '???')
 
   return res.status(200).json({
     ok: true,

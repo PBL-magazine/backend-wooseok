@@ -6,7 +6,7 @@ module.exports = PostService = {
   getAllPost: async () => {
     // const posts = await Posts.findAll({ include: Users }); // api 한번 더 살필것
     const posts = await Posts.findAll({
-      raw: true,
+      // raw: true,
       include: [
         {
           model: Users,
@@ -19,15 +19,20 @@ module.exports = PostService = {
       }
     });
 
+    const likes = await LikeService.getLikes();
+
+    return { posts, likes };
+
+
+    // 이렇게 하면 controller에서 Promise { <pending> } 으로 출력됨.
     // return posts.map(async (post) => {
     //   const likesCnt = await LikeService.searchLikesCnt(post.post_id);
     //   post['likes'] = likesCnt ? likesCnt : 0;
 
     //   return { ...post, likes: likesCnt }
     // })
-
+/**
     const likesValue = await Likes.findAll({ raw: true });
-
     return posts.map((post) => {
       const likes = likesValue.filter(
         (like) => like.post_id === post.post_id
@@ -35,6 +40,8 @@ module.exports = PostService = {
 
       return { ...post, likes: likes.length }
     })
+ */
+
   },
 
   // 게시글 추가
@@ -62,7 +69,7 @@ module.exports = PostService = {
 
   // 특정 게시물 가져오기
   findPostById: async (post_id) => {
-    return await Posts.findOne({
+    const posts = await Posts.findOne({
       include: [{
         model: Users,
         as: 'user',
@@ -75,6 +82,10 @@ module.exports = PostService = {
         // attributes: { include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'likes']] }
       }
     });
+
+    const likes = await LikeService.getLikesById(post_id);
+
+    return { posts, likes }
   },
 
   // 게시글 수정

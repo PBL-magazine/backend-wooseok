@@ -23,13 +23,16 @@ module.exports = LikeService = {
     }
   },
 
-  searchLikesCnt: async (post_id) => {
-    const likes = await Likes.findAll({
+  getLikesById: async (post_id) => {
+    return await Likes.findAll({
       raw: true,
       where: { post_id }
     })
+  },
 
-    return likes.length
+
+  getLikes: async () => {
+    return await Likes.findAll({ raw: true });
   }
 
   
