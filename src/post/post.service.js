@@ -1,13 +1,16 @@
 const { Posts, Likes, Comments, Users, sequelize } = require('../models')
+const LikeService = require('../like/like.service');
 
 module.exports = PostService = {
   // 전체 게시글 가져오기
   getAllPost: async () => {
     // const posts = await Posts.findAll({ include: Users }); // api 한번 더 살필것
     const posts = await Posts.findAll({
+      raw: true,
       include: [
         {
           model: Users,
+          as: 'user',
           attributes: ['user_id', 'email', 'nickname', 'role']
         }
       ],
@@ -15,8 +18,23 @@ module.exports = PostService = {
         deleted_at: null
       }
     });
-    
-    return posts;
+
+    // return posts.map(async (post) => {
+    //   const likesCnt = await LikeService.searchLikesCnt(post.post_id);
+    //   post['likes'] = likesCnt ? likesCnt : 0;
+
+    //   return { ...post, likes: likesCnt }
+    // })
+
+    const likesValue = await Likes.findAll({ raw: true });
+
+    return posts.map((post) => {
+      const likes = likesValue.filter(
+        (like) => like.post_id === post.post_id
+      )
+
+      return { ...post, likes: likes.length }
+    })
   },
 
   // 게시글 추가
@@ -47,6 +65,7 @@ module.exports = PostService = {
     return await Posts.findOne({
       include: [{
         model: Users,
+        as: 'user',
         attributes: ['user_id', 'email', 'nickname', 'role']
       }],
       raw: true,

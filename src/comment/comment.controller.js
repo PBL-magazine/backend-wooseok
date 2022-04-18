@@ -24,8 +24,6 @@ router.post('/', verifiedToken, async (req, res) => {
 
     const user_id = user.user_id
 
-    console.log(post_id, content, user_id)
-
     CommentService.addComment(content, post_id, user_id)
 
     return res.status(201).json({

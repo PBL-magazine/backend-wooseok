@@ -15,14 +15,11 @@ const PostValidation = {
     next();
   },
   WriterMatch: async (req, res, next) => {
-    // console.log(res.locals.user);
     const { post_id } = req.params;
     const { user_id } = res.locals.user;
     
     // 해당 포스트의 user_id와 user.user_id가 같은지 확인
     const post = await PostService.findPostById(post_id);
-    console.log(req.method)
-    console.log('============')
     if (!post) {
       return res.status(404).json({
         ok: false,

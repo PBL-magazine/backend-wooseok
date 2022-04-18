@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
 // const bodyParser = require('body-parser');
-const db = require('./models')
+const cors = require('cors');
+const db = require('./models');
 
 require('dotenv').config({ path: 'src/.env' });
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors());
 
 // like 라우터
 const likeController = require('./like/like.controller');
@@ -29,12 +31,12 @@ app.use('/api/users', authController);
 // 404 handling
 app.get('*', (req, res) => {
   res.status(404).json({
-    ok: false
-  })
-})
+    ok: false,
+  });
+});
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
-    console.log(`on port ${PORT}`)
-  })
-})
+    console.log(`on port ${PORT}`);
+  });
+});

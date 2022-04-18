@@ -60,14 +60,15 @@ router.post('/signin', signInValidator, async (req, res) => {
       email: user.email,
       nickname: user.nickname,
     }, SECRET)
+    
+    res.cookie('token', accessToken)
+    return res.status(200).json({
+      ok: true
+    })
 
-    // return res.status(200).cookie({
+    // return res.status(200).json({
     //   token: accessToken
     // })
-
-    return res.status(200).json({
-      token: accessToken
-    })
   })
 })
 

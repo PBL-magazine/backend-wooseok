@@ -25,11 +25,13 @@ module.exports = (sequelize, DataTypes) => {
 
   Comments.associate = (models) => {
     Comments.belongsTo(models.Users, {
-      foreignKey: 'user_id'
+      foreignKey: 'user_id',
+      as: 'user',
     })
 
     Comments.belongsTo(models.Posts, {
-      foreignKey: 'post_id'
+      foreignKey: 'post_id',
+      as: 'post',
     })
   }
   

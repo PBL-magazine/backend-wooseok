@@ -34,15 +34,18 @@ module.exports = (sequelize, DataTypes) => {
     Posts.hasMany(models.Comments, {
       onDelete: "cascade",
       foreignKey: "post_id",
+      as: 'comment',
     })
 
     Posts.hasMany(models.Likes, {
       onDelete: "cascade",
       foreignKey: "post_id",
+      as: 'likes',
     })
 
     Posts.belongsTo(models.Users, {
-      foreignKey: "user_id"
+      foreignKey: "user_id",
+      as: 'user'
     })
 
   }

@@ -10,8 +10,6 @@ router.patch('/like', verifiedToken, async (req, res) => {
   const { post_id } = req.params;
   const { user } = res.locals;
 
-  console.log(user)
-
   const liked = await LikeService.chkLiked(post_id, user.user_id);
   await LikeService.changeLike(liked, post_id, user.user_id);
 

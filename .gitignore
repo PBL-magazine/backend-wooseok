@@ -5,3 +5,5 @@ src/.env
 config/
 
 uploads/
+
+client/

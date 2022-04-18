@@ -14,11 +14,13 @@ module.exports = (sequelize, DataTypes) => {
 
   Likes.associate = (models) => {
     Likes.belongsTo(models.Users, {
-      foreignKey: 'user_id'
+      foreignKey: 'user_id',
+      as: 'user',
     })
 
     Likes.belongsTo(models.Posts, {
-      foreignKey: 'post_id'
+      foreignKey: 'post_id',
+      as: 'post',
     })
   }
   
