@@ -31,9 +31,7 @@ describe('로그인 테스트', () => {
 
     await signInValidator(req, res, next);
     expect(next).toBeCalledTimes(0);
-  
   })
-
 });
 
 

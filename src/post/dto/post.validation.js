@@ -4,6 +4,7 @@ const PostService = require('../post.service');
 
 const PostValidation = {
   Content: (req, res, next) => {
+    console.log(req)
     const { content } = req.body;
 
     if (!content) {

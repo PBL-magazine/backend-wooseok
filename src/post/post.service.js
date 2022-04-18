@@ -22,7 +22,57 @@ module.exports = PostService = {
       await LikeService.getLikes()
     ])
 
-    return { posts, likes }
+    // TODO
+    posts.map((post) => {
+      const likeList = likes.filter((like) => {
+        like.post_id === post.post_id
+      }).map((like) => {
+        user_id: like.user_id
+      });
+      // return { ...post, likes };
+    })
+
+    return { ...posts, likes }
+
+    /**======================================= */
+
+    const postsAll = await Posts.findAll({
+      include: [
+        {
+          raw: true,
+          model: Users,
+          as: 'user',
+          attributes: ['user_id', 'email', 'nickname', 'role'],
+        },
+      ],
+    });
+
+
+    const likesAll = await Likes.findAll();
+
+    /* 사용자 정보까지 조회하려면 아래 옵션 추가 */
+    /*
+    {
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['user_id', 'email', 'nickname'],
+        },
+      ],
+    }
+    */
+
+    const postValues = postsAll.map((el) => el.get({ plain: true }));
+    const likesValues = likesAll.map((el) => el.get({ plain: true }));
+
+    return postValues.map((post) => {
+      const likes = likesValues
+        .filter((like) => like.post_id === post.post_id)
+        .map((like) => ({ user_id: like.user_id }));
+      return { ...post, likes };
+    });
+  },
 
 
     // 이렇게 하면 controller에서 Promise { <pending> } 으로 출력됨.
@@ -42,7 +92,7 @@ module.exports = PostService = {
       return { ...post, likes: likes.length }
     })
  */
-  },
+  // },
 
   // 게시글 추가
   addPost: async (content, image_url, user_id) => {
@@ -69,25 +119,26 @@ module.exports = PostService = {
 
   // 특정 게시물 가져오기
   findPostById: async (post_id) => {
-    const posts = await Posts.findOne({
-      include: [
-        {
-          model: Users,
-          as: 'user',
-          attributes: ['user_id', 'email', 'nickname', 'role'],
+    const [posts, likes] = await Promise.all([
+      await Posts.findOne({
+        include: [
+          {
+            model: Users,
+            as: 'user',
+            attributes: ['user_id', 'email', 'nickname', 'role'],
+          },
+        ],
+        raw: true,
+        nest: true,
+        where: {
+          post_id,
+          deleted_at: null,
         },
-      ],
-      raw: true,
-      where: {
-        post_id,
-        deleted_at: null,
-        // attributes: { include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'likes']] }
-      },
-    });
+      }),
 
-    const likes = await LikeService.getLikesById(post_id);
-
-    return { posts, likes };
+      await LikeService.getLikesById(post_id)
+    ]);
+    return { ...posts, likes };
   },
 
   // 게시글 수정
@@ -108,7 +159,7 @@ module.exports = PostService = {
   deletePost: async (post_id) => {
     await Posts.update(
       {
-        deletedAt: new Date(),
+        deleted_at: new Date(),
       },
       {
         where: { post_id },

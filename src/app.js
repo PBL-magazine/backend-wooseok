@@ -11,6 +11,7 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
+app.use('/image', express.static('uploads'));
 
 // like 라우터
 const likeController = require('./like/like.controller');

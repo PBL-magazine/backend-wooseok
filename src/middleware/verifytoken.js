@@ -24,6 +24,7 @@ const verifiedToken = (req, res, next) => {
       error: error,
     });
   }
+
 };
 
 module.exports = { verifiedToken };

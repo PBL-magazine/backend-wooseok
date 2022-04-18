@@ -9,29 +9,35 @@ const uploader = multer({ dest: 'uploads/' });
 
 // 1. 전체 게시글 가져오기
 router.get('/', async (req, res) => {
-  const results = await PostService.getAllPost();
+  try {
+    console.log('여기냐')
+    const results = await PostService.getAllPost();
+    return res.status(200).json({
+      ok: true,
+      rows: results,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message
+    })
+  }
 
-  return res.status(200).json({
-    ok: true,
-    rows: results,
-  });
 });
 
 // 2. 게시글 추가
 router.post(
   '/',
   verifiedToken,
+  uploader.single('image'),
   PostValidation.Content,
-  uploader.single('file'),
   async (req, res) => {
     const { file } = req;
     const { content } = req.body;
     const { user_id } = res.locals.user;
 
-    const imagePath = file ? `/uploads/${req.file.filename}` : null;
+    const imagePath = file ? `/image/${req.file.filename}` : null;
 
     const response = await PostService.addPost(content, imagePath, user_id);
-
     if (response.success) {
       return res.status(201).json({
         ok: true,
@@ -40,16 +46,20 @@ router.post(
     return res.status(500).json({
       status: '500 Internal Server Error',
     });
+
   }
 );
 
 // 3. 특정 게시물 조회
 router.get('/:post_id', async (req, res) => {
   const { post_id } = req.params;
+  console.log(post_id)
   const post = await PostService.findPostById(post_id);
+  console.log('where am i')
+  console.log(post)
   res.status(200).json({
     ok: true,
-    rows: post,
+    row: post,
   });
 });
 

@@ -1,12 +1,21 @@
-const { Comments } = require('../models');
+const { Comments, Users } = require('../models');
 
 module.exports = CommentService = {
   // 특정 게시글의 전체 댓글 조회
   findAllComments: async (post_id) => {
     return await Comments.findAll({
+      include: [
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['user_id', 'email', 'nickname', 'role'],
+        },
+      ],
+      raw: true,
+      nest: true,
       where: {
         post_id,
-        deletedAt: null,
+        deleted_at: null,
       },
     });
   },
