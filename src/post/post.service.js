@@ -1,27 +1,29 @@
 const { Posts, Likes, Comments, Users, sequelize } = require('../models');
-const LikeService = require('../like/like.servic');
+const LikeService = require('../like/like.service');
 
 module.exports = PostService = {
   // 전체 게시글 가져오기
   getAllPost: async () => {
-    // const posts = await Posts.findAll({ include: Users }); // api 한번 더 살필것
-    const posts = await Posts.findAll({
-      // raw: true,
-      include: [
-        {
-          model: Users,
-          as: 'user',
-          attributes: ['user_id', 'email', 'nickname', 'role'],
+
+    const [posts, likes] = await Promise.all([
+      await Posts.findAll({
+        include: [
+          {
+            model: Users,
+            as: 'user',
+            attributes: ['user_id', 'email', 'nickname', 'role'],
+          },
+        ],
+        where: {
+          deleted_at: null,
         },
-      ],
-      where: {
-        deleted_at: null,
-      },
-    });
+      }),
 
-    const likes = await LikeService.getLikes();
+      await LikeService.getLikes()
+    ])
 
-    return { posts, likes };
+    return { posts, likes }
+
 
     // 이렇게 하면 controller에서 Promise { <pending> } 으로 출력됨.
     // return posts.map(async (post) => {
