@@ -1,4 +1,4 @@
-const { Users } = require('../models')
+const { Users } = require('../models');
 
 module.exports = AuthService = {
   // 해당 이메일 찾기
@@ -11,11 +11,9 @@ module.exports = AuthService = {
     Users.create({
       email,
       nickname,
-      password: hash
-    })
-    
+      password: hash,
+    });
+
     return;
   },
-
-
-}
+};

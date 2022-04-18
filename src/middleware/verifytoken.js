@@ -8,24 +8,22 @@ const verifiedToken = (req, res, next) => {
 
   if (tokenType !== 'Bearer') {
     return res.status(401).json({
-      error: "로그인 후 사용해 주세요."
-    })
+      error: '로그인 후 사용해 주세요.',
+    });
   }
 
   try {
     const { email } = jwt.verify(tokenValue, SECRET);
 
-
-    Users.findOne({ where: { email }}).then((user) => {
+    Users.findOne({ where: { email } }).then((user) => {
       res.locals.user = user.dataValues;
       next();
-    })
-
+    });
   } catch (error) {
     res.json({
-      error: error
-    })
+      error: error,
+    });
   }
-}
+};
 
-module.exports = { verifiedToken }
+module.exports = { verifiedToken };

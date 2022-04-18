@@ -1,54 +1,53 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const Posts = sequelize.define("Posts", {
-    post_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
+  const Posts = sequelize.define(
+    'Posts',
+    {
+      post_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      content: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      image_url: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      deleted_at: {
+        allowNull: true,
+        type: DataTypes.DATE,
+      },
     },
-    content: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    image_url: {
-      allowNull: false,
-      type: DataTypes.STRING,
-    },
-    deleted_at: {
-      allowNull: true,
-      type: DataTypes.DATE
+    {
+      timestamps: true,
+      underscored: true,
+      tableName: 'posts',
     }
-  },
-  {
-    timestamps: true,
-    underscored: true,
-    tableName: 'posts'
-  })
-
-
+  );
 
   Posts.associate = (models) => {
-
     Posts.hasMany(models.Comments, {
-      onDelete: "cascade",
-      foreignKey: "post_id",
+      onDelete: 'cascade',
+      foreignKey: 'post_id',
       as: 'comment',
-    })
+    });
 
     Posts.hasMany(models.Likes, {
-      onDelete: "cascade",
-      foreignKey: "post_id",
+      onDelete: 'cascade',
+      foreignKey: 'post_id',
       as: 'likes',
-    })
+    });
 
     Posts.belongsTo(models.Users, {
-      foreignKey: "user_id",
-      as: 'user'
-    })
+      foreignKey: 'user_id',
+      as: 'user',
+    });
+  };
 
-  }
-  
-  return Posts
-}
+  return Posts;
+};

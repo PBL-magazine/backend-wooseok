@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prettify": "prettier --write *.js **/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/app.js"
+    "prettify": "prettier --write *.js **/*.js src/*",
+    "start": "nodemon src/app.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -22,8 +22,10 @@
     "sequelize": "^6.19.0"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
-    "sequelize-cli": "^6.4.1"
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.2"
   }
 }

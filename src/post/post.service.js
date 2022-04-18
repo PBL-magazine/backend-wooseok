@@ -1,5 +1,5 @@
-const { Posts, Likes, Comments, Users, sequelize } = require('../models')
-const LikeService = require('../like/like.service');
+const { Posts, Likes, Comments, Users, sequelize } = require('../models');
+const LikeService = require('../like/like.servic');
 
 module.exports = PostService = {
   // 전체 게시글 가져오기
@@ -11,18 +11,17 @@ module.exports = PostService = {
         {
           model: Users,
           as: 'user',
-          attributes: ['user_id', 'email', 'nickname', 'role']
-        }
+          attributes: ['user_id', 'email', 'nickname', 'role'],
+        },
       ],
       where: {
-        deleted_at: null
-      }
+        deleted_at: null,
+      },
     });
 
     const likes = await LikeService.getLikes();
 
     return { posts, likes };
-
 
     // 이렇게 하면 controller에서 Promise { <pending> } 으로 출력됨.
     // return posts.map(async (post) => {
@@ -31,7 +30,7 @@ module.exports = PostService = {
 
     //   return { ...post, likes: likesCnt }
     // })
-/**
+    /**
     const likesValue = await Likes.findAll({ raw: true });
     return posts.map((post) => {
       const likes = likesValue.filter(
@@ -41,7 +40,6 @@ module.exports = PostService = {
       return { ...post, likes: likes.length }
     })
  */
-
   },
 
   // 게시글 추가
@@ -51,16 +49,16 @@ module.exports = PostService = {
         return res.status(400).json({
           data: {
             ok: false,
-            message: '내용을 입력하세요.'
-          }
-        })
+            message: '내용을 입력하세요.',
+          },
+        });
       }
 
       Posts.create({
         content,
         image_url,
-        user_id
-      })
+        user_id,
+      });
       return { success: true };
     } catch (error) {
       return { success: false };
@@ -70,43 +68,50 @@ module.exports = PostService = {
   // 특정 게시물 가져오기
   findPostById: async (post_id) => {
     const posts = await Posts.findOne({
-      include: [{
-        model: Users,
-        as: 'user',
-        attributes: ['user_id', 'email', 'nickname', 'role']
-      }],
+      include: [
+        {
+          model: Users,
+          as: 'user',
+          attributes: ['user_id', 'email', 'nickname', 'role'],
+        },
+      ],
       raw: true,
-      where : {
+      where: {
         post_id,
-        deleted_at: null
+        deleted_at: null,
         // attributes: { include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'likes']] }
-      }
+      },
     });
 
     const likes = await LikeService.getLikesById(post_id);
 
-    return { posts, likes }
+    return { posts, likes };
   },
 
   // 게시글 수정
   updatePost: async (post_id, content) => {
-    await Posts.update({
-      content
-    },{
-      where: {
-        post_id
+    await Posts.update(
+      {
+        content,
+      },
+      {
+        where: {
+          post_id,
+        },
       }
-    })
+    );
   },
 
   // 게시글 삭제
   deletePost: async (post_id) => {
-    await Posts.update({
-      deletedAt: new Date(),
-    }, {
-      where: { post_id },
-    })
+    await Posts.update(
+      {
+        deletedAt: new Date(),
+      },
+      {
+        where: { post_id },
+      }
+    );
     return;
   },
-
-}
+};
