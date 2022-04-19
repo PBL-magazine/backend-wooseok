@@ -4,10 +4,6 @@ import CommentActions from '../actions/CommentActions';
 const PostComment = (props) => {
   const { post_id, user, comment } = props;
 
-  console.log(post_id)
-  console.log(user)
-  console.log(comment)
-
   const [editable, setEditable] = useState(false);
   const [commentDto, setCommentDto] = useState({
     content: comment.content,

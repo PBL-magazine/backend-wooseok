@@ -7,7 +7,6 @@ const { verifiedToken } = require('../middleware/verifytoken');
 router.get('/', async (req, res) => {
   const { post_id } = req.params;
   const comments = await CommentService.findAllComments(post_id);
-  console.log(comments)
   return res.status(200).json({
     ok: true,
     rows: comments,

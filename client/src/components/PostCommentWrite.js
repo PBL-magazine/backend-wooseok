@@ -18,7 +18,6 @@ const PostCommentWrite = (props) => {
 
   const onSubmitButtonClick = async () => {
     const { content } = commentDto;
-    console.log(content)
 
     if (!content) return alert('댓글 내용을 입력하세요.');
 

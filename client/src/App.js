@@ -18,7 +18,6 @@ const App = () => {
 
   const checkAuth = useCallback(async () => {
     const { ok, user } = await UserActions.authorize();
-    // console.log(user)
     if (ok) return setUser(user);
     setUser(false);
   }, []);

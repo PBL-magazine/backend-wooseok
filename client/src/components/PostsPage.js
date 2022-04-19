@@ -9,11 +9,9 @@ const PostsPage = (props) => {
   const getPosts = useCallback(async () => {
     const { ok, rows, message } = await PostActions.getPosts();
     if (!ok) return alert(message);
-    console.log(rows)
     setPosts(rows);
   }, []);
 
-  // console.log(posts)
 
   useEffect(() => {
     getPosts();
@@ -26,7 +24,6 @@ const PostsPage = (props) => {
       <div>
         {posts.map((post, key) => {
           const PostCardProps = { key, user, post };
-          console.log(PostCardProps)
           return <PostCard {...PostCardProps} />;
         })}
       </div>

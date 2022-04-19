@@ -5,7 +5,6 @@ const CommentActions = {
   getComments: async (post_id) => {
     return await Axios.get(`/api/posts/${post_id}/comments`)
       .then((response) => {
-        console.log(response)
         const {
           data: { ok, rows },
         } = response;
@@ -66,7 +65,6 @@ const CommentActions = {
   deleteComment: async (post_id, comment_id) => {
     return await Axios.delete(`/api/posts/${post_id}/comments/${comment_id}`)
       .then((response) => {
-        console.log(response);
         const {
           data: { ok },
         } = response;

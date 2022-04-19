@@ -41,7 +41,6 @@ const PostActions = {
 
   /* 특정 게시물에 대한 자신의 좋아요 상태를 변경합니다. */
   likePost: async (post_id) => {
-    console.log(post_id)
     return await Axios.patch(`/api/posts/${post_id}/like`)
       .then((response) => {
         const {
@@ -50,7 +49,6 @@ const PostActions = {
         return { ok, like };
       })
       .catch((error) => {
-        console.log(error)
         const {
           response: {
             data: { ok, message },

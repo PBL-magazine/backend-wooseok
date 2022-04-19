@@ -10,7 +10,6 @@ const uploader = multer({ dest: 'uploads/' });
 // 1. 전체 게시글 가져오기
 router.get('/', async (req, res) => {
   try {
-    console.log('여기냐')
     const results = await PostService.getAllPost();
     return res.status(200).json({
       ok: true,
@@ -53,10 +52,7 @@ router.post(
 // 3. 특정 게시물 조회
 router.get('/:post_id', async (req, res) => {
   const { post_id } = req.params;
-  console.log(post_id)
   const post = await PostService.findPostById(post_id);
-  console.log('where am i')
-  console.log(post)
   res.status(200).json({
     ok: true,
     row: post,

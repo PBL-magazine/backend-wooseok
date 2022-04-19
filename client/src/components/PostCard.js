@@ -4,11 +4,9 @@ import PostActions from '../actions/PostActions';
 
 const PostCard = (props) => {
   const { user } = props;
-  // console.log(user)
   const [post, setPost] = useState(props.post);
 
   const renderPostImage = (image_url) => {
-    // console.log(image_url)
     if (!image_url) return <div>이미지 없음</div>;
     return <img src={image_url} alt="post_image" />;
   };
@@ -18,8 +16,6 @@ const PostCard = (props) => {
 
     if (user) {
       const likesUserIds = post.likes.map((like) => like.user_id);
-      // console.log(likesUserIds)
-      // console.log(likesUserIds)
       buttonText = likesUserIds.includes(user.user_id)
         ? '좋아요 취소'
         : '좋아요';
@@ -37,13 +33,10 @@ const PostCard = (props) => {
     if (!ok) return alert(message);
 
     const isLike = post.likes.find((like) => like.user_id === user.user_id);
-    console.log(isLike)
-    console.log(post)
     const likes = isLike
       ? post.likes.filter((like) => like.user_id !== user.user_id)
       : [...post.likes, { user_id: user.user_id }];
 
-    // console.log(likes)
     
     setPost({ ...post, likes });
   };

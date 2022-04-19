@@ -9,7 +9,6 @@ const UserActions = {
   signup: async (userDto) => {
     return await Axios.post('/api/users/signup', userDto)
       .then((response) => {
-        console.log(response)
         const {
           data: { ok },
         } = response;

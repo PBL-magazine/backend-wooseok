@@ -3,7 +3,6 @@ const SECRET = process.env.SECRET;
 const { Users } = require('../models');
 
 const verifiedToken = (req, res, next) => {
-  console.log(req.headers.authorization)
   const { authorization } = req.headers;
   if (!authorization) {
     return res.status(401).json({

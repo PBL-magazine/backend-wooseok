@@ -32,9 +32,7 @@ const PostPage = (props) => {
   };
 
   const renderOwnerButton = () => {
-    console.log(post.user.role)
     if (user && user.user_id === post.user_id) {
-      console.log('통과...')
       return (
         <div>
           <button onClick={onEditButtonClick}>수정</button>

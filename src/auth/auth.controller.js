@@ -12,8 +12,6 @@ router.post('/signup', signUpValidator, async (req, res) => {
   try {
     const { email, nickname, password } = req.body;
 
-    console.log(req.body)
-
     const existUser = await AuthService.findByEmail(email);
     if (existUser) {
       return res.status(409).json({
@@ -86,7 +84,6 @@ router.post('/signin', signInValidator, async (req, res) => {
 
 router.get('/auth', verifiedToken, async (req, res) => {
   const { user } = res.locals;
-  console.log(user)
   return res.status(200).json({
     ok: true,
     user

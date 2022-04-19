@@ -11,7 +11,6 @@ const PostComments = (props) => {
   const getComments = useCallback(async () => {
     const { ok, rows, message } = await CommentActions.getComments(post_id);
     if (!ok) return alert(message);
-    console.log(rows)
     setComments(rows);
   }, [post_id]);
 
