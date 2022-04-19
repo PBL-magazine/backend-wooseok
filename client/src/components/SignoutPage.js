@@ -4,7 +4,8 @@ import UserActions from '../actions/UserActions';
 const SignoutPage = () => {
   const signout = useCallback(() => {
     UserActions.signout();
-    window.location.pathname = '/signin';
+    // window.location.pathname = '/signin';
+    window.location.pathname = '/';
   }, []);
 
   useEffect(() => {

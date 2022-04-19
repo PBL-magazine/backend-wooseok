@@ -37,6 +37,7 @@ module.exports = PostService = {
     /**======================================= */
 
     const postsAll = await Posts.findAll({
+      where : { deleted_at: null },
       include: [
         {
           raw: true,

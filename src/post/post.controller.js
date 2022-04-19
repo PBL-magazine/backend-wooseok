@@ -8,6 +8,14 @@ const PostValidation = require('./dto/post.validation');
 const uploader = multer({ dest: 'uploads/' });
 
 // 1. 전체 게시글 가져오기
+/**
+ * @swagger
+ * paths: '/api/posts'
+ * get:
+ * summary: 'test swagger'
+ * tags: [Post]
+ * definitions: Post
+ */
 router.get('/', async (req, res) => {
   try {
     const results = await PostService.getAllPost();
