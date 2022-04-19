@@ -5,34 +5,34 @@ module.exports = PostService = {
   // 전체 게시글 가져오기
   getAllPost: async () => {
 
-    const [posts, likes] = await Promise.all([
-      await Posts.findAll({
-        include: [
-          {
-            model: Users,
-            as: 'user',
-            attributes: ['user_id', 'email', 'nickname', 'role'],
-          },
-        ],
-        where: {
-          deleted_at: null,
-        },
-      }),
+    // const [posts, likes] = await Promise.all([
+    //   await Posts.findAll({
+    //     include: [
+    //       {
+    //         model: Users,
+    //         as: 'user',
+    //         attributes: ['user_id', 'email', 'nickname', 'role'],
+    //       },
+    //     ],
+    //     where: {
+    //       deleted_at: null,
+    //     },
+    //   }),
 
-      await LikeService.getLikes()
-    ])
+    //   await LikeService.getLikes()
+    // ])
 
-    // TODO
-    posts.map((post) => {
-      const likeList = likes.filter((like) => {
-        like.post_id === post.post_id
-      }).map((like) => {
-        user_id: like.user_id
-      });
-      // return { ...post, likes };
-    })
+    // // TODO
+    // posts.map((post) => {
+    //   const likeList = likes.filter((like) => {
+    //     like.post_id === post.post_id
+    //   }).map((like) => {
+    //     user_id: like.user_id
+    //   });
+    //   // return { ...post, likes };
+    // })
 
-    return { ...posts, likes }
+    // return { ...posts, likes }
 
     /**======================================= */
 

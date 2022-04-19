@@ -3,12 +3,19 @@ const SECRET = process.env.SECRET;
 const { Users } = require('../models');
 
 const verifiedToken = (req, res, next) => {
+  console.log(req.headers.authorization)
   const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(401).json({
+      ok: false,
+      message: '로그인 후 사용해 주세요'
+    })
+  }
   const [tokenType, tokenValue] = authorization.split(' ');
 
   if (tokenType !== 'Bearer') {
     return res.status(401).json({
-      error: '로그인 후 사용해 주세요.',
+      message: '로그인 후 사용해 주세요.',
     });
   }
 
@@ -21,7 +28,7 @@ const verifiedToken = (req, res, next) => {
     });
   } catch (error) {
     res.json({
-      error: error,
+      message: error,
     });
   }
 
