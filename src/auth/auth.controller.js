@@ -8,6 +8,17 @@ const { verifiedToken } = require('../middleware/verifytoken')
 const { signUpValidator, signInValidator } = require('./dto/auth.validation');
 
 // 회원가입
+/**
+* @swagger
+* paths:
+*  /api/users/signup:
+*   post:
+*     tags: [User]
+*     summary: 회원가입
+*     responses:
+*       "200":
+*         description: 회원가입 성공
+ */
 router.post('/signup', signUpValidator, async (req, res) => {
   try {
     const { email, nickname, password } = req.body;
@@ -36,6 +47,17 @@ router.post('/signup', signUpValidator, async (req, res) => {
 });
 
 // 로그인
+/**
+* @swagger
+* paths:
+*  /api/users/signin:
+*   post:
+*     tags: [User]
+*     summary: 로그인
+*     responses:
+*       "200":
+*         description: 로그인 성공
+ */
 router.post('/signin', signInValidator, async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -81,7 +103,17 @@ router.post('/signin', signInValidator, async (req, res) => {
   }
 });
 
-
+/**
+* @swagger
+* paths:
+*  /api/users/auth:
+*   get:
+*     tags: [User]
+*     summary: 유저 검증
+*     responses:
+*       "200":
+*         description: 유저 확인 성공
+ */
 router.get('/auth', verifiedToken, async (req, res) => {
   const { user } = res.locals;
   return res.status(200).json({

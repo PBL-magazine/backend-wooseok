@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/image', express.static('uploads'));
 
-const { swaggerUi, specs } = require('../swaggerDoc');
+const { swaggerUi, specs } = require('./utils/swaggerDoc');
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 // app.use(express.static(path.join(__dirname, '../client/build')));
 

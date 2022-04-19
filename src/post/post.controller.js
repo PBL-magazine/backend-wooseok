@@ -9,13 +9,16 @@ const uploader = multer({ dest: 'uploads/' });
 
 // 1. 전체 게시글 가져오기
 /**
- * @swagger
- * paths: '/api/posts'
- * get:
- * summary: 'test swagger'
- * tags: [Post]
- * definitions: Post
- */
+* @swagger
+* paths:
+*  /api/posts:
+*   get:
+*     tags: [Post]
+*     summary: 전체 게시물 조회
+*     responses:
+*       "200":
+*         description: 전체 조회 성공,
+*/
 router.get('/', async (req, res) => {
   try {
     const results = await PostService.getAllPost();
@@ -32,6 +35,17 @@ router.get('/', async (req, res) => {
 });
 
 // 2. 게시글 추가
+/**
+* @swagger
+* paths:
+*  /api/posts:
+*   post:
+*     tags: [Post]
+*     summary: 게시물 생성
+*     responses:
+*       "201":
+*         description: 게시글 추가 성공,
+ */
 router.post(
   '/',
   verifiedToken,
@@ -58,6 +72,18 @@ router.post(
 );
 
 // 3. 특정 게시물 조회
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}:
+*   post:
+*     tags: [Post]
+*     summary: 특정 게시물 조회
+*     parameters: post_id
+*     responses:
+*       "200":
+*         description: 게시글 조회 성공
+ */
 router.get('/:post_id', async (req, res) => {
   const { post_id } = req.params;
   const post = await PostService.findPostById(post_id);
@@ -68,6 +94,18 @@ router.get('/:post_id', async (req, res) => {
 });
 
 // 4. 특정 게시물 수정
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}:
+*   patch:
+*     tags: [Post]
+*     summary: 특정 게시물 수정
+*     parameters: post_id
+*     responses:
+*       "200":
+*         description: 게시글 수정 성공
+ */
 router.patch(
   '/:post_id',
   verifiedToken,
@@ -87,6 +125,18 @@ router.patch(
 );
 
 // 5. 특정 게시물 삭제
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}:
+*   delete:
+*     tags: [Post]
+*     summary: 특정 게시물 삭제
+*     parameters: post_id
+*     responses:
+*       "200":
+*         description: 게시글 삭제 성공
+ */
 router.delete(
   '/:post_id',
   verifiedToken,

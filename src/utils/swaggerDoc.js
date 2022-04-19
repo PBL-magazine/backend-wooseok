@@ -17,11 +17,11 @@ const options = {
     },
 //swagger api가 존재하는 곳 입니다.
     apis: [
-      './src/*.js',
-      './src/post/*.js',
-      './src/auth/*.js',
-      './src/like/*.js',
-      './src/comment/*.js'
+      './src/**/*.js',
+    //   './src/post/*.js',
+    //   './src/auth/*.js',
+    //   './src/like/*.js',
+    //   './src/comment/*.js'
     ]
 };
 

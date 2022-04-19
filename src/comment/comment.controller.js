@@ -4,6 +4,17 @@ const router = express.Router({ mergeParams: true });
 const { verifiedToken } = require('../middleware/verifytoken');
 
 // 1. 특정 게시글 전체 댓글 조회
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}/comments:
+*   get:
+*     tags: [Comment]
+*     summary: 특적 게시글 전체 댓글 조회
+*     responses:
+*       "200":
+*         description: 댓글 조회 성공
+ */
 router.get('/', async (req, res) => {
   const { post_id } = req.params;
   const comments = await CommentService.findAllComments(post_id);
@@ -14,6 +25,17 @@ router.get('/', async (req, res) => {
 });
 
 // 2. 특정 게시글 댓글 생성
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}/comments:
+*   post:
+*     tags: [Comment]
+*     summary: 댓글 생성
+*     responses:
+*       "200":
+*         description: 댓글 생성 성공
+ */
 router.post('/', verifiedToken, async (req, res) => {
   try {
     const { post_id } = req.params;
@@ -35,6 +57,17 @@ router.post('/', verifiedToken, async (req, res) => {
 });
 
 // 3. 특정 게시글의 댓글 수정
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}/comments/{comment_id}:
+*   patch:
+*     tags: [Comment]
+*     summary: 댓글 수정
+*     responses:
+*       "200":
+*         description: 댓글 수정 성공
+ */
 router.patch('/:comment_id', verifiedToken, async (req, res) => {
   const { comment_id } = req.params;
   const { content } = req.body;
@@ -53,6 +86,17 @@ router.patch('/:comment_id', verifiedToken, async (req, res) => {
 });
 
 // 4. 특정 게시글의 댓글 삭제
+/**
+* @swagger
+* paths:
+*  /api/posts/{post_id}/comments/{comment_id}:
+*   delete:
+*     tags: [Comment]
+*     summary: 댓글 삭제
+*     responses:
+*       "200":
+*         description: 댓글 삭제 성공
+*/
 router.delete('/:comment_id', verifiedToken, async (req, res) => {
   try {
     const { comment_id } = req.params;
