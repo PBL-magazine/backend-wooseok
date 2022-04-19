@@ -21,7 +21,21 @@ const { signUpValidator, signInValidator } = require('./dto/auth.validation');
  */
 router.post('/signup', signUpValidator, async (req, res) => {
   try {
-    const { email, nickname, password } = req.body;
+    const { email, nickname, password, confirmPassword } = req.body;
+
+    if (password !== confirmPassword) {
+      return res.status(400).json({
+        ok: false,
+        message: '두 패스워드가 다릅니다.'
+      })
+    }
+
+    if (password.includes(nickname)) {
+      return res.status(400).json({
+        ok: false,
+        message: '비밀번호에 닉네임이 포함되어있으면 안됩니다'
+      })
+    }
 
     const existUser = await AuthService.findByEmail(email);
     if (existUser) {

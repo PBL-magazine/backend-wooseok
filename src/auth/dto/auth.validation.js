@@ -6,7 +6,7 @@ const authValidation = {
       'string.email': '이메일 형식을 확인하세요.',
       'string.empty': '이메일을 입력해 주세요.',
     }),
-    nickname: joi.string().min(3).max(30).required().messages({
+    nickname: joi.string().regex('^[a-zA-Z0-9]*$').min(3).max(30).required().messages({
       'string.base': '닉네임 형식을 확인해 주세요.',
       'string.empty': '닉네임을 입력해 주세요.',
     }),

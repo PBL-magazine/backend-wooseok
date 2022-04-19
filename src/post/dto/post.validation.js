@@ -18,6 +18,10 @@ const PostValidation = {
     const { post_id } = req.params;
     const { user_id } = res.locals.user;
 
+    if (user_id === 0) {
+      next();
+    }
+
     // 해당 포스트의 user_id와 user.user_id가 같은지 확인
     const post = await PostService.findPostById(post_id);
     if (!post) {
