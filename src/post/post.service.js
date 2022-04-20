@@ -5,70 +5,27 @@ module.exports = PostService = {
   // 전체 게시글 가져오기
   getAllPost: async () => {
 
-    // const [posts, likes] = await Promise.all([
-    //   await Posts.findAll({
-    //     include: [
-    //       {
-    //         model: Users,
-    //         as: 'user',
-    //         attributes: ['user_id', 'email', 'nickname', 'role'],
-    //       },
-    //     ],
-    //     where: {
-    //       deleted_at: null,
-    //     },
-    //   }),
-
-    //   await LikeService.getLikes()
-    // ])
-
-    // // TODO
-    // posts.map((post) => {
-    //   const likeList = likes.filter((like) => {
-    //     like.post_id === post.post_id
-    //   }).map((like) => {
-    //     user_id: like.user_id
-    //   });
-    //   // return { ...post, likes };
-    // })
-
-    // return { ...posts, likes }
-
-    /**======================================= */
-
-    const postsAll = await Posts.findAll({
-      where : { deleted_at: null },
-      include: [
-        {
-          raw: true,
-          model: Users,
-          as: 'user',
-          attributes: ['user_id', 'email', 'nickname', 'role'],
+    const [posts, likesList] = await Promise.all([
+      await Posts.findAll({
+        include: [
+          {
+            model: Users,
+            as: 'user',
+            attributes: ['user_id', 'email', 'nickname', 'role'],
+          },
+        ],
+        raw: true,
+        nest: true,
+        where: {
+          deleted_at: null,
         },
-      ],
-    });
+      }),
 
+      await LikeService.getLikes()
+    ])
 
-    const likesAll = await Likes.findAll();
-
-    /* 사용자 정보까지 조회하려면 아래 옵션 추가 */
-    /*
-    {
-      include: [
-        {
-          model: User,
-          as: 'user',
-          attributes: ['user_id', 'email', 'nickname'],
-        },
-      ],
-    }
-    */
-
-    const postValues = postsAll.map((el) => el.get({ plain: true }));
-    const likesValues = likesAll.map((el) => el.get({ plain: true }));
-
-    return postValues.map((post) => {
-      const likes = likesValues
+    return posts.map((post) => {
+      const likes = likesList
         .filter((like) => like.post_id === post.post_id)
         .map((like) => ({ user_id: like.user_id }));
       return { ...post, likes };
@@ -92,7 +49,7 @@ module.exports = PostService = {
 
       return { ...post, likes: likes.length }
     })
- */
+    */
   // },
 
   // 게시글 추가

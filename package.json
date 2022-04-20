@@ -6,7 +6,7 @@
   "scripts": {
     "prettify": "prettier --write *.js **/*.js src/*",
     "start": "nodemon src/app.js",
-    "test": "jest",
+    "test": "jest --runInBand --detectOpenHandles",
     "server": "nodemon src/app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""

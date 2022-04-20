@@ -1,7 +1,7 @@
-const { signInValidator, signUpValidator } = require('../../src/auth/dto/auth.validation')
+const { signInValidator, signUpValidator } = require('../../../src/auth/dto/auth.validation');
 
 describe('로그인 테스트', () => {
-  test('로그인 형식 테스트 true', async () => {
+  test('로그인 형식 테스트 true여야 함', async () => {
     const req = {
       body: {
         email: 'moto4321@naver.com',
@@ -15,7 +15,7 @@ describe('로그인 테스트', () => {
     expect(next).toBeCalledTimes(1);
   })
 
-  test('로그인 형식 테스트 false', async () => {
+  test('로그인 형식 테스트 false여야 함', async () => {
     const req = {
       body: {
         email: 'moto4321naver.com',
@@ -36,12 +36,13 @@ describe('로그인 테스트', () => {
 
 
 describe('회원가입 테스트', () => {
-  test('회원가입 형식 테스트 true', async () => {
+  test('회원가입 형식 테스트 true여야 함', async () => {
     const req = {
       body: {
         email: 'moto4321@naver.com',
         nickname: 'wooseok',
-        password: 'aaaa1111'
+        password: 'aaaa1111',
+        confirmPassword: 'aaaa1111'
       }    
     };
     const res = {};
@@ -51,12 +52,13 @@ describe('회원가입 테스트', () => {
     expect(next).toBeCalledTimes(1);
   })
 
-  test('회원가입 형식 테스트 false', async () => {
+  test('회원가입 형식 테스트 false여야 함', async () => {
     const req = {
       body: {
         email: 'moto4321@naver.com',
         nickname: 'wd',
-        password: 'aaaa1111'
+        password: 'aaaa1111',
+        confirmPassword: 'aaaa1111'
       }    
     };
     const res = { //? 테스트할 함수안에 들어있는 실행 로직들은 꼼꼼하게 하나하나 선언해주는게 좋다. (에러방지) 
