@@ -15,10 +15,12 @@ const { signUpValidator, signInValidator } = require('./dto/auth.validation');
 *   post:
 *     tags: [User]
 *     summary: 회원가입
-*     responses:
-*       "200":
-*         description: 회원가입 성공
- */
+*     content:
+*       application/x-www-form-urlencoded
+*         schema:
+*           type: object
+*     
+*/
 router.post('/signup', signUpValidator, async (req, res) => {
   try {
     const { email, nickname, password, confirmPassword } = req.body;

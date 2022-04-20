@@ -9,16 +9,12 @@ const uploader = multer({ dest: 'uploads/' });
 
 // 1. 전체 게시글 가져오기
 /**
-* @swagger
-* paths:
-*  /api/posts:
-*   get:
-*     tags: [Post]
-*     summary: 전체 게시물 조회
-*     responses:
-*       "200":
-*         description: 전체 조회 성공,
-*/
+ * @swagger
+ * /api/posts:
+ * get:
+ *  tags: [Post]
+ *  summary: 전체 게시글 가져오기
+ */
 router.get('/', async (req, res) => {
   try {
     const results = await PostService.getAllPost();

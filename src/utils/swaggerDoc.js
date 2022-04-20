@@ -12,11 +12,13 @@ const options = {
             version: '1.0.0',
             description: 'Test API with express',
         },
-        host: 'localhost:8080',
+        // host: 'localhost:8080',
+        host: 'http://127.0.0.1:8080',
         basePath: '/'
     },
 //swagger api가 존재하는 곳 입니다.
     apis: [
+        // './swagger.yaml'
       './src/**/*.js',
     //   './src/post/*.js',
     //   './src/auth/*.js',

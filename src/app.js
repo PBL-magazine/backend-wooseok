@@ -15,9 +15,9 @@ app.use(express.json());
 app.use(cors());
 app.use('/image', express.static('uploads'));
 
-const { swaggerUi, specs } = require('./utils/swaggerDoc');
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
-// app.use(express.static(path.join(__dirname, '../client/build')));
+// const { swaggerUi, specs } = require('./utils/swaggerDoc');
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // like 라우터
 /**
@@ -59,16 +59,16 @@ app.use('/api/posts/:post_id/comments', commentController);
 const authController = require('./auth/auth.controller');
 app.use('/api/users', authController);
 
-// app.get('/', (req, res) => {
-//   return res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
-// })
+app.get('*', (req, res) => {
+  return res.sendFile(path.join(__dirname, '../client/build', 'index.html'))
+})
 
 // 404 handling
-app.get('*', (req, res) => {
-  res.status(404).json({
-    ok: false,
-  });
-});
+// app.get('*', (req, res) => {
+//   res.status(404).json({
+//     ok: false,
+//   });
+// });
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
