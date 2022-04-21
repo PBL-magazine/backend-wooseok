@@ -98,7 +98,6 @@ router.get('/auth', verifiedToken, async (req, res) => {
     ok: true,
     user
   })
-
 });
 
 module.exports = router;

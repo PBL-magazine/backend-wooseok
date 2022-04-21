@@ -17,13 +17,20 @@ const setupDatabase = async () => {
   })
   // await Users.create(userOne)
 
-  bcrypt.hash(userOne.password, 10).then((hash) => {
+  await bcrypt.hash(userOne.password, 10).then((hash) => {
     AuthService.createUser(
       userOne.email,
       userOne.nickname,
       hash
     );
   });
+
+  Posts.destroy({
+    where: {},
+    truncate: false,
+  })
+
+  await Posts.create()
 }
 
 module.exports = {

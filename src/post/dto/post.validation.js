@@ -16,7 +16,7 @@ const PostValidation = {
   },
   WriterMatch: async (req, res, next) => {
     const { post_id } = req.params;
-    const { user_id } = res.locals.user;
+    const { user_id, role } = res.locals.user;
 
     if (user_id === 0) {
       next();
@@ -31,7 +31,7 @@ const PostValidation = {
       });
     }
 
-    if (post.user_id !== user_id) {
+    if ((role !== 0) && (post.user_id !== user_id)) {
       if (req.method === 'DELETE') {
         return res.status(401).json({
           ok: false,
