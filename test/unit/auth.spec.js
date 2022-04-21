@@ -1,4 +1,7 @@
 const { signInValidator, signUpValidator } = require('../../src/auth/dto/auth.validation');
+const { setupDatabase } = require('../fixtures/db');
+
+beforeEach(setupDatabase)
 
 describe('로그인 테스트', () => {
   test('로그인 형식 테스트 true여야 함', async () => {
@@ -15,6 +18,9 @@ describe('로그인 테스트', () => {
     expect(next).toBeCalledTimes(1);
   })
 
+  // email: 'test@example.com',
+  // nickname: 'nicktest',
+  // password: 'q1w2e3r4',
   test('로그인 형식 테스트 false여야 함', async () => {
     const req = {
       body: {

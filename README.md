@@ -68,3 +68,11 @@
 4. react - express 로컬환경 테스트
 
 ### 4/19
+1. react + express 배포 및 에러 수정
+
+### 4/20
+1. 서비스 aws에 배포
+
+### 4/21
+1. level2 과제 제출 및 test code 작성
+
