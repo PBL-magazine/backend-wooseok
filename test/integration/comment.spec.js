@@ -18,15 +18,4 @@ describe('회원관리 API test', () => {
       .expect(200)    
   })
 
-
-  // 댓글 생성
-  // test('POST /api/users/signin', async () => {
-  //   return request(app)
-  //     .post('/api/users/signin')
-  //     .send({
-  //       email: 'test@example.com',
-  //       password: 'q1w2e3r4'
-  //     }).expect(200)
-  // })
-
 });

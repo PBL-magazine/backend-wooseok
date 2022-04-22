@@ -44,11 +44,6 @@ const setupUserDatabase = async () => {
   // await Users.create(userOne)
 
   await bcrypt.hash(userOne.password, 10).then((hash) => {
-    // AuthService.createUser(
-    //   userOne.email,
-    //   userOne.nickname,
-    //   hash
-    // );
     Users.create({
       user_id: 1,
       email: 'test@example.com',
@@ -66,11 +61,6 @@ const setupPostDatabase = async () => {
   })
 
   Posts.create(postOne)
-  // await PostService.addPost(
-  //   postOne.content,
-  //   postOne.image_url,
-  //   postOne.user_id
-  // )
 }
 
 const setupCommentDatabase = async () => {
@@ -80,7 +70,6 @@ const setupCommentDatabase = async () => {
   })
 
   Comments.create(commentOne)
-  // await commentService.addComment()
 }
 
 module.exports = {
