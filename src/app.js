@@ -37,9 +37,7 @@ app.get('*', (req, res) => {
 
 // 404 handling
 // app.get('*', (req, res) => {
-//   res.status(404).json({
-//     ok: false,
-//   });
+//   res.status(404).send('404 not found')
 // });
 
 db.sequelize.sync().then(() => {

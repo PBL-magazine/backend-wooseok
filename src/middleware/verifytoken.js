@@ -19,14 +19,11 @@ const verifiedToken = async (req, res, next) => {
 
   try {
     const { email } = jwt.verify(tokenValue, SECRET);
-    console.log('여기는 나오겠지')
     await Users.findOne({ where: { email } }).then((user) => {
       res.locals.user = user.dataValues;
-      console.log('next 직전')
       next();
     });
   } catch (error) {
-    console.log('여기가 실행되면 안되는데')
     res.json({
       message: error,
     });

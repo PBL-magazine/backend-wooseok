@@ -75,4 +75,9 @@
 
 ### 4/21
 1. level2 과제 제출 및 test code 작성
+2. unit test: 회원가입, 로그인 validation test 성공
+3. unit test: 사용자 매칭모듈 test 성공
 
+### 4/22
+1. integration test: 게시물 조회 test code 수정
+2. 

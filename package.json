@@ -7,6 +7,7 @@
     "prettify": "prettier --write *.js **/*.js src/*",
     "start": "nodemon src/app.js",
     "test": "jest --forceExit",
+    "coverage": "jest --coverage",
     "server": "nodemon src/app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
