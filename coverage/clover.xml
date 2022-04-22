@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650617463106" clover="3.2.0">
-  <project timestamp="1650617463106" name="All files">
-    <metrics statements="303" coveredstatements="210" conditionals="48" coveredconditionals="20" methods="56" coveredmethods="32" elements="407" coveredelements="262" complexity="0" loc="303" ncloc="303" packages="10" files="18" classes="18"/>
+<coverage generated="1650623654216" clover="3.2.0">
+  <project timestamp="1650623654216" name="All files">
+    <metrics statements="309" coveredstatements="222" conditionals="48" coveredconditionals="20" methods="57" coveredmethods="36" elements="414" coveredelements="278" complexity="0" loc="309" ncloc="309" packages="10" files="18" classes="18"/>
     <package name="src">
       <metrics statements="27" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
       <file name="app.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/app.js">
         <metrics statements="27" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.auth">
       <metrics statements="44" coveredstatements="35" conditionals="10" coveredconditionals="5" methods="7" coveredmethods="6"/>
       <file name="auth.controller.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/auth/auth.controller.js">
         <metrics statements="39" coveredstatements="30" conditionals="10" coveredconditionals="5" methods="5" coveredmethods="4"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
@@ -61,7 +61,7 @@
         <line num="38" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
@@ -74,54 +74,54 @@
         <line num="82" count="1" type="stmt"/>
         <line num="83" count="1" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
-        <line num="95" count="2" type="stmt"/>
+        <line num="95" count="3" type="stmt"/>
         <line num="96" count="0" type="stmt"/>
         <line num="97" count="0" type="stmt"/>
-        <line num="103" count="2" type="stmt"/>
+        <line num="103" count="3" type="stmt"/>
       </file>
       <file name="auth.service.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/auth/auth.service.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.auth.dto">
       <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="auth.validation.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/auth/dto/auth.validation.js">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
         <line num="37" count="3" type="stmt"/>
         <line num="38" count="3" type="stmt"/>
         <line num="39" count="3" type="stmt"/>
         <line num="41" count="2" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
         <line num="51" count="3" type="stmt"/>
         <line num="52" count="3" type="stmt"/>
         <line num="53" count="3" type="stmt"/>
         <line num="55" count="2" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
-        <line num="64" count="3" type="stmt"/>
+        <line num="64" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.comment">
-      <metrics statements="40" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <metrics statements="40" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="2"/>
       <file name="comment.controller.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/comment/comment.controller.js">
-        <metrics statements="31" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
+        <metrics statements="31" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
@@ -130,26 +130,26 @@
         <line num="25" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
+        <line num="57" count="3" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
+        <line num="71" count="3" type="stmt"/>
       </file>
       <file name="comment.service.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/comment/comment.service.js">
-        <metrics statements="9" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
@@ -162,24 +162,24 @@
       <metrics statements="21" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
       <file name="like.controller.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/like/like.controller.js">
         <metrics statements="13" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
       </file>
       <file name="like.service.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/like/like.service.js">
         <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="11" count="0" type="stmt"/>
@@ -192,10 +192,10 @@
       <metrics statements="17" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="verifytoken.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/middleware/verifytoken.js">
         <metrics statements="17" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
@@ -208,91 +208,91 @@
         <line num="23" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="34" count="3" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.models">
       <metrics statements="47" coveredstatements="46" conditionals="9" coveredconditionals="6" methods="11" coveredmethods="11"/>
       <file name="comments.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/models/comments.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="41" count="5" type="stmt"/>
       </file>
       <file name="index.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/models/index.js">
         <metrics statements="20" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="12" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="12" count="5" type="cond" truecount="1" falsecount="1"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="25" count="20" type="stmt"/>
-        <line num="30" count="16" type="stmt"/>
-        <line num="34" count="16" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="38" count="16" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="16" type="stmt"/>
-        <line num="43" count="4" type="stmt"/>
-        <line num="44" count="4" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="25" count="25" type="stmt"/>
+        <line num="30" count="20" type="stmt"/>
+        <line num="34" count="20" type="stmt"/>
+        <line num="37" count="5" type="stmt"/>
+        <line num="38" count="20" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="20" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
       </file>
       <file name="like.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/models/like.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
       </file>
       <file name="posts.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/models/posts.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
-        <line num="52" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="52" count="5" type="stmt"/>
       </file>
       <file name="users.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/models/users.js">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
-        <line num="45" count="4" type="stmt"/>
-        <line num="51" count="4" type="stmt"/>
-        <line num="58" count="4" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="58" count="5" type="stmt"/>
       </file>
     </package>
     <package name="src.post">
-      <metrics statements="57" coveredstatements="23" conditionals="9" coveredconditionals="0" methods="13" coveredmethods="3"/>
+      <metrics statements="57" coveredstatements="25" conditionals="9" coveredconditionals="0" methods="13" coveredmethods="4"/>
       <file name="post.controller.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/post/post.controller.js">
         <metrics statements="37" coveredstatements="16" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
@@ -301,34 +301,34 @@
         <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="41" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
         <line num="71" count="0" type="stmt"/>
         <line num="73" count="0" type="stmt"/>
         <line num="75" count="0" type="stmt"/>
-        <line num="82" count="2" type="stmt"/>
+        <line num="82" count="3" type="stmt"/>
         <line num="87" count="0" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
-        <line num="101" count="2" type="stmt"/>
+        <line num="101" count="3" type="stmt"/>
       </file>
       <file name="post.service.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/post/post.service.js">
-        <metrics statements="20" coveredstatements="7" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
+        <metrics statements="20" coveredstatements="9" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="3"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="57" count="0" type="stmt"/>
         <line num="58" count="0" type="cond" truecount="0" falsecount="5"/>
         <line num="59" count="0" type="stmt"/>
@@ -346,8 +346,8 @@
       <metrics statements="20" coveredstatements="12" conditionals="14" coveredconditionals="7" methods="2" coveredmethods="1"/>
       <file name="post.validation.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/src/post/dto/post.validation.js">
         <metrics statements="20" coveredstatements="12" conditionals="14" coveredconditionals="7" methods="2" coveredmethods="1"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
@@ -365,28 +365,34 @@
         <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="41" count="0" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
       </file>
     </package>
     <package name="test.fixtures">
-      <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="db.js" path="/Users/wooseokki/Desktop/Dev_Study/hanghae-nodejs/node-week2/test/fixtures/db.js">
-        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="25" count="3" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="41" count="3" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="86" count="4" type="stmt"/>
       </file>
     </package>
   </project>
