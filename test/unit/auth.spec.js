@@ -1,7 +1,10 @@
 const { signInValidator, signUpValidator } = require('../../src/auth/dto/auth.validation');
 const { setupDatabase } = require('../fixtures/db');
+const jwt = require('jsonwebtoken');
+const { verifiedToken } = require('../../src/middleware/verifytoken')
+// require('dotenv').config({ path: '../src/.env' });
 
-beforeEach(setupDatabase)
+// beforeEach(setupDatabase)
 
 describe('로그인 테스트', () => {
   test('로그인 형식 테스트 true여야 함', async () => {
@@ -18,9 +21,6 @@ describe('로그인 테스트', () => {
     expect(next).toBeCalledTimes(1);
   })
 
-  // email: 'test@example.com',
-  // nickname: 'nicktest',
-  // password: 'q1w2e3r4',
   test('로그인 형식 테스트 false여야 함', async () => {
     const req = {
       body: {
@@ -78,5 +78,33 @@ describe('회원가입 테스트', () => {
     expect(next).toBeCalledTimes(0);
   
   })
+
+});
+
+
+describe('토큰 확인 테스트', () => {
+  test('토큰이 유효하다면 next()를 실행해야 함', async () => {
+    const token = jwt.sign({
+      email: 'test@example.com',
+      nickname: 'nicktest',
+    }, 'kiwooseok')
+    const req = {
+      headers : {
+        authorization : `Bearer ${token}`
+      }
+    };
+    const res = {
+      status: jest.fn(() => res),
+      json: jest.fn(),
+      locals: jest.fn(() => res)
+    }
+    const next = jest.fn();
+
+    await verifiedToken(req, res, next);
+
+    expect(next).toBeCalledTimes(1)
+  
+  })
+
 
 });

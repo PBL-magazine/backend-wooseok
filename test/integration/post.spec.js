@@ -42,23 +42,23 @@ describe('게시글 라우트', () => {
 
   // 게스글 생성 테스트
   test('POST /api/posts', async () => {
-    // const image = path.resolve(__dirname, '../')
+    const image = path.resolve(__dirname, '../fixtures/log.jpeg')
 
 
-
-    // console.log('여기에요!!!!');
-    // console.log(image)
+    console.log('여기에요!!!!');
+    console.log(image)
     
-    // await supertest(app)
-    //   .post('/api/posts')
-    //   .set('content-type')
-    //   .set('authorization', 'Bearer ', accessToken)
+    await request(app)
+      .post('/api/posts')
+      .set('authorization', 'Bearer ', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vdG80MzIxQG5hdmVyLmNvbSIsIm5pY2tuYW1lIjoia2l3b29zZW9rIiwiaWF0IjoxNjUwNTkxODY5fQ.zvVyku_LzVtRAVP2JrTkCPr65N84c8ia-kAWfxNZEBk')
+      .set('Content-Type', 'multipart/form-data')
+      .attach('image', image)
+      .expect(201)
 
-        
+      
     // const response = await supertest(app).post('/api/posts');
     // expect(response.status).toEqual(200)
 
-    expect(1).toBe(1)
 
   })
 });

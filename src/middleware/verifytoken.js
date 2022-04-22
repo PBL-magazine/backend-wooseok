@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
 const { Users } = require('../models');
 
-const verifiedToken = (req, res, next) => {
+const verifiedToken = async (req, res, next) => {
   const { authorization } = req.headers;
   if (!authorization) {
     return res.status(401).json({
@@ -11,7 +11,6 @@ const verifiedToken = (req, res, next) => {
     })
   }
   const [tokenType, tokenValue] = authorization.split(' ');
-
   if (tokenType !== 'Bearer') {
     return res.status(401).json({
       message: '로그인 후 사용해 주세요.',
@@ -20,12 +19,14 @@ const verifiedToken = (req, res, next) => {
 
   try {
     const { email } = jwt.verify(tokenValue, SECRET);
-
-    Users.findOne({ where: { email } }).then((user) => {
+    console.log('여기는 나오겠지')
+    await Users.findOne({ where: { email } }).then((user) => {
       res.locals.user = user.dataValues;
+      console.log('next 직전')
       next();
     });
   } catch (error) {
+    console.log('여기가 실행되면 안되는데')
     res.json({
       message: error,
     });

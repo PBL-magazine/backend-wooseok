@@ -10,6 +10,7 @@ const userOne = {
   password: 'q1w2e3r4',
 }
 
+
 const setupDatabase = async () => {
   await Users.destroy({
     where : {},
@@ -25,12 +26,12 @@ const setupDatabase = async () => {
     );
   });
 
-  Posts.destroy({
-    where: {},
-    truncate: false,
-  })
+  // Posts.destroy({
+  //   where: {},
+  //   truncate: false,
+  // })
 
-  await Posts.create()
+  // await Posts.create()
 }
 
 module.exports = {
