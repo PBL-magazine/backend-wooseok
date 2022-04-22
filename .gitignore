@@ -7,3 +7,5 @@ config/
 uploads/
 
 .DS_Store
+
+coverage
