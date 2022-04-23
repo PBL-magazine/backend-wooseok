@@ -1,12 +1,13 @@
 const app = require('../../src/app');
 const request = require('supertest');
 const path = require('path');
-const { setupPostDatabase, setupUserDatabase } = require('../fixtures/db');
+const { setupPostDatabase, setupUserDatabase, getToken } = require('../fixtures/db');
 const { Posts } = require('../../src/models')
 const { sequelize } = require("../../src/models");
 
 beforeAll(setupUserDatabase)
 beforeAll(setupPostDatabase)
+// beforeAll(getToken)
 
 describe('게시글 API test', () => {
   // 게시글 조회 테스트
@@ -61,9 +62,13 @@ describe('게시글 API test', () => {
 
   // 게시글 삭제 테스트
   test('DELETE /api/posts/:post_id', async () => {
-    return request(app)
+
+    // 로그인 후 token 받아오기
+    const accessToken = getToken;
+    
+    return await request(app)
       .delete('/api/posts/1')
-      .set('authorization', 'Bearer ', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1vdG80MzIxQG5hdmVyLmNvbSIsIm5pY2tuYW1lIjoia2l3b29zZW9rIiwiaWF0IjoxNjUwNTkxODY5fQ.zvVyku_LzVtRAVP2JrTkCPr65N84c8ia-kAWfxNZEBk')
+      .set('authorization', `Bearer `, accessToken)
       .expect(200)
   })
 

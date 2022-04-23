@@ -6,7 +6,7 @@ const { verifiedToken } = require('../../src/middleware/verifytoken')
 
 // beforeEach(setupDatabase)
 
-describe('로그인 테스트', () => {
+describe('로그인 unit test', () => {
   test('로그인 형식 테스트 true여야 함', async () => {
     const req = {
       body: {

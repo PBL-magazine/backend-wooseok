@@ -80,4 +80,4 @@
 
 ### 4/22
 1. integration test: 게시물 조회 test code 수정
-2. 
+2. intrgration test: 댓글 조회 test code 작성

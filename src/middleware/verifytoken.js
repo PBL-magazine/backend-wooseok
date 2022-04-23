@@ -3,6 +3,7 @@ const SECRET = process.env.SECRET;
 const { Users } = require('../models');
 
 const verifiedToken = async (req, res, next) => {
+
   const { authorization } = req.headers;
   if (!authorization) {
     return res.status(401).json({
@@ -16,6 +17,7 @@ const verifiedToken = async (req, res, next) => {
       message: '로그인 후 사용해 주세요.',
     });
   }
+
 
   try {
     const { email } = jwt.verify(tokenValue, SECRET);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const AuthService = require('../auth/auth.service');
 const SECRET = process.env.SECRET;
@@ -10,14 +10,15 @@ const { signUpValidator, signInValidator } = require('./dto/auth.validation');
 // 회원가입
 router.post('/signup', signUpValidator, async (req, res) => {
   try {
+    // const { email, nickname, password, confirmPassword } = req.body;
     const { email, nickname, password, confirmPassword } = req.body;
 
-    if (password !== confirmPassword) {
-      return res.status(400).json({
-        ok: false,
-        message: '두 패스워드가 다릅니다.'
-      })
-    }
+    // if (password !== confirmPassword) {
+    //   return res.status(400).json({
+    //     ok: false,
+    //     message: '두 패스워드가 다릅니다.'
+    //   })
+    // }
 
     if (password.includes(nickname)) {
       return res.status(400).json({

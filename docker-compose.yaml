@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  node_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes: 
+      - .:/app
+      - '/app/node_modules'
+    env_file:
+      - ./src/.env
+    depends_on:
+      - mysql_node
+
+
+  mysql_node:
+    image: mysql
+    platform: linux/x86_64
+    environment: 
+      - MYSQL_DATABASE=node_docker_db
+      - MYSQL_USER=woosoek
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password

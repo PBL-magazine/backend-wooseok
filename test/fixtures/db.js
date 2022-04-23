@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { Users, Posts, Comments, Likes } = require('../../src/models')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const AuthService = require('../../src/auth/auth.service');
 const PostService = require('../../src/post/post.service');
 const commentService = require('../../src/comment/comment.service');
@@ -41,7 +41,6 @@ const setupUserDatabase = async () => {
     where : {},
     truncate: false,
   })
-  // await Users.create(userOne)
 
   await bcrypt.hash(userOne.password, 10).then((hash) => {
     Users.create({
@@ -72,9 +71,17 @@ const setupCommentDatabase = async () => {
   Comments.create(commentOne)
 }
 
+const getToken = async () => {
+  return jwt.sign({
+    email: userOne.email,
+    nickname: userOne.nickname
+  }, process.env.SECRET)
+}
+
 module.exports = {
   userOne,
   setupUserDatabase,
   setupPostDatabase,
-  setupCommentDatabase
+  setupCommentDatabase,
+  getToken
 }
